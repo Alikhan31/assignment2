@@ -1,0 +1,21 @@
+System Components
+Item: Abstract base class for catalog items like books, magazines, CDs, etc.
+User: Abstract base class for different types of users such as librarians and patrons.
+Catalog: Manages items in the library.
+User Management: Manages user permissions and interactions.
+CLI: Command-line interface for interaction.
+Application of SOLID Principles
+1. Single Responsibility Principle (SRP)
+Item: Responsible for holding information common to all items. Specific types of items will extend this class.
+User: Holds common user information. Specific types of users will extend this class, each implementing their own permissions and actions.
+Catalog: Manages the addition, deletion, and searching of items.
+User Management: Handles user authentication and authorization.
+2. Open/Closed Principle (OCP)
+Item and User: Both are designed as abstract classes or interfaces, allowing for new types of items or users to be added without modifying existing code.
+Catalog and User Management: Implementations use polymorphism to interact with items and users, allowing for new functionalities to be added with minimal changes.
+3. Liskov Substitution Principle (LSP)
+Any subclass of Item or User can be substituted for their base class without affecting the functionality. For example, a Book can be used anywhere an Item is expected.
+4. Interface Segregation Principle (ISP)
+Separate interfaces for different functionalities, ensuring that classes only need to implement the interfaces relevant to them. For example, separate interfaces for item checkout, return, and inventory management.
+5. Dependency Inversion Principle (DIP)
+High-level modules like the CLI and Catalog operations depend on abstractions (interfaces or abstract classes) rather than concrete implementations of Items or Users.
